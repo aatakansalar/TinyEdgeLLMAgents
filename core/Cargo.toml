@@ -1,0 +1,42 @@
+[package]
+name = "tinyedgellmagents-core"
+version = "0.1.0"
+edition = "2021"
+authors = ["aatakansalar"]
+description = "Lightweight LLM inference engine for TinyEdgeLLMAgents - WASM/WASI-NN powered"
+license = "MIT"
+repository = "https://github.com/aatakansalar/TinyEdgeLLMAgents"
+homepage = "https://github.com/aatakansalar/TinyEdgeLLMAgents"
+documentation = "https://docs.rs/tinyedgellmagents-core"
+keywords = ["llm", "ai", "webassembly", "wasi", "edge", "agents"]
+categories = ["science", "wasm", "api-bindings"]
+
+[lib]
+name = "tinyedgellmagents_core"
+path = "src/lib.rs"
+
+[[bin]]
+name = "tinyedgellmagents-core"
+path = "src/main.rs"
+
+[dependencies]
+# WASI-NN bindings for neural network inference
+wasi-nn = "0.6.0"
+
+# JSON serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Error handling
+anyhow = "1.0"
+
+[profile.release]
+# Optimize for size for WebAssembly
+opt-level = "s"        # Size optimization
+lto = true            # Link time optimization
+codegen-units = 1     # Single codegen unit for better optimization
+panic = "abort"       # Reduce binary size
+strip = true          # Strip debug symbols
+
+[profile.dev]
+panic = "abort"       # Consistent behavior across profiles

@@ -1,0 +1,64 @@
+[package]
+name = "tinyedgellmagents"
+version = "0.1.0"
+edition = "2021"
+authors = ["aatakansalar"]
+description = "TinyEdgeLLMAgents - Experimental edge LLM agent runtime with WASM tools"
+license = "MIT"
+repository = "https://github.com/aatakansalar/TinyEdgeLLMAgents"
+homepage = "https://github.com/aatakansalar/TinyEdgeLLMAgents"
+documentation = "https://docs.rs/tinyedgellmagents"
+keywords = ["llm", "ai", "agents", "edge", "webassembly", "autonomous"]
+categories = ["science", "wasm", "command-line-utilities"]
+
+[lib]
+name = "tinyedgellmagents"
+path = "src/lib.rs"
+
+[[bin]]
+name = "tinyedgellmagents"
+path = "src/main.rs"
+
+[dependencies]
+# Core inference engine
+tinyedgellmagents-core = { path = "../core" }
+
+# Async runtime for tool execution
+tokio = { version = "1.0", features = ["full"] }
+
+# JSON serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# WASM runtime for tools
+wasmtime = { version = "15.0", features = ["component-model"] }
+wasmtime-wasi = "15.0"
+wat = "1.235"
+
+# Async utilities
+futures = "0.3"
+
+# Filesystem utilities
+walkdir = "2.4"
+
+# Regex for parsing
+regex = "1.10"
+
+# CLI interface
+clap = { version = "4.0", features = ["derive"] }
+atty = "0.2"
+
+[profile.release]
+# Optimize for size for WebAssembly
+opt-level = "s"        # Size optimization
+lto = true            # Link time optimization
+codegen-units = 1     # Single codegen unit for better optimization
+panic = "abort"       # Reduce binary size
+strip = true          # Strip debug symbols
+
+[profile.dev]
+panic = "abort"       # Consistent behavior across profiles 

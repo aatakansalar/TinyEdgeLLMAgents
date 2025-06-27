@@ -1,0 +1,5 @@
+{
+  "response": "WebAssembly enables portable AI inference through several key mechanisms: 1) Platform independence - WASM bytecode runs identically across different operating systems and hardware architectures. 2) Secure execution - The WASM sandbox provides memory isolation and controlled system access. 3) Near-native performance - Compiled WASM approaches native code speed while maintaining portability. 4) WASI-NN integration - The WebAssembly System Interface for Neural Networks provides standardized access to hardware accelerators like GPUs and specialized AI chips, allowing the same model to leverage different compute resources without code changes.",
+  "tokens_generated": 89,
+  "model_info": "SuperTinyWasmLLM v0.1.0 - Model: TinyLlama-1.1B-Chat-v1.0.Q4_K_M.gguf (WASI-NN)"
+} 

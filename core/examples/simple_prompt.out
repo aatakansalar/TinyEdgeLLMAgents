@@ -1,0 +1,5 @@
+{
+  "response": "Once upon a time, there was a brave little princess who lived in a magical castle surrounded by enchanted forests.",
+  "tokens_generated": 20,
+  "model_info": "SuperTinyWasmLLM v0.1.0 - Model: TinyLlama-1.1B-Chat-v1.0.Q4_K_M.gguf (WASI-NN)"
+} 

@@ -1,0 +1,50 @@
+# Rust build artifacts
+target/
+Cargo.lock
+
+# WASM binaries (large files, build from source)
+*.wasm
+
+# Model files (too large for git, download separately)
+*.gguf
+*.bin
+*.safetensors
+model.*
+*-native
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment files
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Test outputs
+test_output/
+test_results/
+
+# Local development
+local/
+dev/
